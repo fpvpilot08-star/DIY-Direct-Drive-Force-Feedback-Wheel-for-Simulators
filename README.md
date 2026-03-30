@@ -6,12 +6,12 @@ This is my DIY direct drive force feedback steering wheel built around a 12Nm NE
 The wheel uses a stepper motor controlled by OpenFFBoard firmware and a TMC4671 FOC driver. Being fully direct drive with no gearbox resulting a in a quiet, reliable, and simple system for simulator racing or anything else..
 
 ### Budget Breakdown
-The critical electronics — 12Nm stepper motor + encoder, STM32F407 board, Elecrow TMC4671 driver kit, 60V power supply, Nylon filament, and a cooling fan — came out to a total of $381. The remaining cost covers hardware, wiring, and additional 3D printing filament.
+The critical electronics — 12Nm stepper motor + encoder, STM32F407 board, Elecrow TMC4671 driver kit, 60V DC power supply, Nylon filament, and a cooling fan — came out to a total of $362. The remaining cost covers hardware, wiring, and additional 3D printing filament.
 
 ### Build Details
 - **Motor**: 12Nm NEMA 34 closed-loop stepper with 1000 PPR encoder  
 - **Driver**: Elecrow OpenFFBoard TMC4671 FOC driver  
-- **Controller**: STM32F407 board  
+- **Controller**: OpenFFBoard STM32F407 stack
 - **Power**: 60V 350W DC PSU  
 - **Base**: Fully 3d printed in order to be cheap and customizable
 - **Wheel**: 3D printed in PETG with electrical tape for grip  
@@ -27,8 +27,11 @@ I'll continue updating this repo with my final configuration files, WheelCheck r
 ### Repository Contents
 - Full BOM.csv with prices and links  
 - KiCad wiring schematic  
-- 3D models (.STEP files)  
-- OpenFFBoard tuning notes  
-- Build photos  
+- 3D models (.STEP files)
+- Instructions for assembly and 3d printing
+
+Safety risks: 
+-High Torque motor, it can break you wrist or bruise it bad, use common sense
+-60V system, if there are any damaged wires or incorrectly wired, it can cause a fire or electrical shock
 
 This is still a work in progress and I am figuring stuff out. Please let me know if I am doing anything wrong and can improve on or change.
