@@ -1,0 +1,25 @@
+Wiring Schematic
+The schematic shows how all the major components are connected in this direct drive wheel build.
+Main Components:
+
+STM32F407 Board – The main controller that runs OpenFFBoard firmware and communicates with the PC via USB.
+Elecrow TMC4671 FOC Driver – The motor driver that converts the STM32 commands into precise torque control for the stepper motor.
+12Nm NEMA 34 Closed-Loop Stepper Motor – The main actuator providing force feedback.
+48-60V Power Supply – Powers the motor and driver.
+10Ω 50W Brake Resistor – Protects the system from voltage spikes.
+80mm Cooling Fan – Keeps the TMC4671 driver cool during use.
+
+Key Connections:
+
+Power: The 48-60V PSU connects to the TMC4671 driver’s VMOT and GND terminals. The brake resistor is wired across the PB+ and PB- terminals.
+Motor Phases: The stepper motor’s four phase wires (A+, A-, B+, B-) connect directly to the TMC4671’s Phase A and Phase B outputs.
+Encoder: The motor’s 1000 PPR encoder (A+, B+, Z+, 5V, GND) connects to the TMC4671’s ENC header for precise position feedback.
+SPI Communication: The STM32F407 talks to the TMC4671 via SPI (SCK, MOSI, MISO, CS) for real-time torque control.
+Logic Power: The TMC4671 provides +5V and GND to power the STM32F407 board.
+USB: The STM32F407 connects to the PC via USB for configuration and force feedback data.
+
+The STM32F407 board is designed to stack directly on top of the TMC4671 driver for clean, short connections.
+You can view the full schematic here: 
+
+FYI- For Anyone else doing this, you can use any stepper motor for this with minor changes. Along with that you can add a encoder to a stepper motor without it for more precision.
+This wiring allows the system to run the stepper motor in true torque mode, giving smooth and powerful direct drive force feedback.
