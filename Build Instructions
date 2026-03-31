@@ -1,0 +1,46 @@
+Build Instructions
+1. Mechanical Assembly
+
+Bolt the 12Nm NEMA 34 stepper motor to the 3D printed housing using M5
+Mount the base to your desk or rig using any type of clamps or just rest it on the table.
+Slide the 3D printed quick release collar onto the motor shaft.
+Tighten the M3 bolts on the collar to securely clamp it to the shaft.
+Attach the YOUR steering wheel with the quick release system from (https://www.thingiverse.com/thing:5100966/files) on Thingiverse.
+Wrap electrical tape around the wheel rim for better grip and feel if you decided to 3D print it.
+
+2. Electronics Mounting
+
+Stack the STM32F407 board directly on top of the Elecrow TMC4671 driver board.
+Mount the stacked driver assembly to the base using M3 standoffs and screws that came with the OpenFFBoard.
+Attach the 80mm cooling fan directly to the 3d printed housing using any bolts of choice.
+
+3. Wiring
+
+Connect the 48-60V power supply to the TMC4671 driver (VMOT = +, GND = -). Add a 10A fuse on the positive wire.
+Connect the 10Ω 50W brake resistor across the PB+ and PB- terminals.
+Wire the motor phases:
+A+ and A- → Phase A terminals
+B+ and B- → Phase B terminals
+
+Wire the encoder to the ENC header on the TMC4671:
+Encoder A+, B+, Z+, 5V, GND
+
+Connect +5V and GND from the TMC4671 driver to the STM32F407 board.
+Connect USB from the STM32F407 board to your PC.
+
+IMPORTANT: Reference the KiCAD schematic I made and check it for yourself since it is possible I made a mistake
+
+4. First Power-Up & Setup
+
+Plug in the USB cable to the PC first (powers the STM32).
+Turn on the 48-60V power supply.
+Flash the latest OpenFFBoard firmware to the STM32F407.
+Open the OpenFFBoard configurator and set:
+Motor type: 2-phase stepper
+Pole pairs: 50
+Encoder: 1000 PPR (4000 CPR)
+
+Start with very low torque (20-30%) and gradually tune the PID and filters.
+
+Safety Note:
+This wheel can produce strong torque. Always start with low torque settings and test carefully. Do not put your hands near the wheel during initial testing. I am not liable for any injuries or faliures that will result in and damages. Everything is done at your own risk.
