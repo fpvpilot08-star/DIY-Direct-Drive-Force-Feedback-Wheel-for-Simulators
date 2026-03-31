@@ -27,7 +27,7 @@ I'll continue updating this repo with my final configuration files, WheelCheck r
 ### Repository Contents
 - Full BOM.csv with prices and links  
 - KiCad wiring schematic  
-- 3D models (.STEP files)
+- 3D models (.STL files)
 - Instructions for assembly and 3d printing
 
 Safety risks: 
